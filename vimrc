@@ -9,7 +9,11 @@ set expandtab
 set autoindent
 set smartindent
 
-:syntax on
+syntax enable
+set path+=**
+set wildmenu
+set wildmode=longest:full,full
+
 set encoding=utf-8
 
 "showing line numbers and length
@@ -21,17 +25,21 @@ set colorcolumn=100
 highlight ColorColumn ctermbg=233
 
 set hlsearch
-set tags=~/mytags
+
+" ctags
+set tags=~/.vim/ctags
+autocmd BufWritePost * call system("ctags --tag-relative=yes -aRf ~/.vim/ctags")
+
 "copy and paste
 set pastetoggle=<F2>
 "set clipboard=unnamed
 
-" enable mouse
-"set mouse=a
-
-" more visible cursor
+" More visible cursor
 set cursorline
 set cursorcolumn
+
+" Status line
+set laststatus=2
 
 " backspace sometime not working
 set bs=2
@@ -67,25 +75,12 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
-
-" settings for vim-powerline
-" cd ~/.vim/bundle
-" git clone git://github.com/Lokaltog/vim-powerline.git
-set laststatus=2
-
-" settings for ctrlp
-" cd ~/.vim/bundle
-" git clone https://github.com/kien/ctrlp.vim.git
-let g:ctrlp_max_height = 30
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=*/coverage/*
-
 " Settings for python-mode
 " cd ~/.vim/bundle
 " git clone https://github.com/klen/python-mode
 " map <Leader>g :call RopeGotoDefinition()<CR>
 let ropevim_enable_shortcuts = 1
+let g:pymode_python = 'python3'
 let g:pymode_rope_goto_def_newwin = "vnew"
 let g:pymode_rope_extended_complete = 1
 let g:pymode_breakpoint = 0
@@ -114,8 +109,6 @@ inoremap <silent><C-k> <C-R>=OmniPopup('k')<CR>
 
 
 " Python folding
-" mkdir -p ~/.vim/ftplugin
-" wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492
 set nofoldenable
 
 " Load pylint code plugin
