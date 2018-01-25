@@ -46,10 +46,6 @@ set bs=2
 let mapleader = " "
 "vnoremap <leader>s :sort<CR>
 
-" $ needs shift, <-> is easier
-nnoremap - $
-vnoremap - $
-
 "easy indentation
 vnoremap < <gv
 vnoremap > >gv
@@ -87,7 +83,7 @@ let g:pymode_breakpoint = 0
 let g:pymode_syntax = 1
 let g:pymode_syntax_builtin_objs = 0
 let g:pymode_syntax_builtin_funcs = 0
-map <Leader>b Oimport pdb; pdb.set_trace()  # BREAKPOINT<C-c>
+map <Leader>b Oimport pdb; pdb.set_trace()  # BREAKPOINT
 
 
 " Better navigating through omnicomplete option list
@@ -161,3 +157,8 @@ let g:pymode_lint_minheight = 3
 "
 " " Maximal height of pylint error window
 let g:pymode_lint_maxheight = 6
+
+" Esc for Extend layer
+execute "set <M-e>=\ee"
+inoremap <M-e> <Esc> 
+vnoremap <M-e> <Esc> 
