@@ -9,7 +9,6 @@ set expandtab
 set autoindent
 set smartindent
 
-syntax enable
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
@@ -21,7 +20,7 @@ set number
 set textwidth=79
 "set nowrap "don't automaticaly wrap on load
 set fo-=t
-set colorcolumn=100
+set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
 set hlsearch
@@ -32,7 +31,7 @@ autocmd BufWritePost * call system("ctags --tag-relative=yes -aRf ~/.vim/ctags")
 
 "copy and paste
 set pastetoggle=<F2>
-"set clipboard=unnamed
+set clipboard=unnamedplus
 
 " More visible cursor
 set cursorline
@@ -70,6 +69,7 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
+syntax on
 
 " Settings for python-mode
 " cd ~/.vim/bundle
@@ -159,6 +159,6 @@ let g:pymode_lint_minheight = 3
 let g:pymode_lint_maxheight = 6
 
 " Esc for Extend layer
-execute "set <M-e>=\ee"
-inoremap <M-e> <Esc> 
-vnoremap <M-e> <Esc> 
+execute "set <M-h>=\ee"
+inoremap <M-h> <Esc> 
+vnoremap <M-h> <Esc> 
