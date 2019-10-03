@@ -27,7 +27,8 @@ set hlsearch
 
 " ctags
 set tags=~/.vim/ctags
-autocmd BufWritePost * call system("ctags --tag-relative=yes -aRf ~/.vim/ctags")
+" Saves take very long time when generating Ctags, is very disturbing
+" autocmd BufWritePost * call system("ctags --tag-relative=yes -aRf ~/.vim/ctags")
 
 "copy and paste
 set pastetoggle=<F2>
